@@ -28,3 +28,12 @@ function randomColor() {
     let colorsArr = [red,green,blue];
     return colorsArr.join(",");
 }
+
+function createCustomGrid() {
+    let gridSize = prompt("Enter a new grid size", 10);
+    if ((parseInt(gridSize) >=100) || (isNaN(gridSize))) {
+        alert("Grid size more than 100, cause delays, freezes or crashes. Grid size will be set to 10")
+        return createGrid(10);
+    } 
+    return createGrid(gridSize);
+}
