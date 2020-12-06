@@ -10,7 +10,7 @@ function createGrid(gridNumber) {
         container.style.gridTemplateRows = `repeat(${gridNumber}, 1fr)`;
         container.insertAdjacentElement("beforeend", gridItem);
         gridItem.addEventListener('mouseover', (e) => {
-            gridItem.classList.add('color');
+            gridItem.style.backgroundColor = `rgb(${randomColor()})`;
         })
     }
 }
@@ -19,4 +19,12 @@ function clearGrid() {
     while (container.firstChild) {
         container.removeChild(container.firstChild)
     }
+}
+
+function randomColor() {
+    let red = Math.floor(Math.random() * 255) + 1;
+    let green= Math.floor(Math.random() * 255) + 1;
+    let blue = Math.floor(Math.random() * 255) + 1;
+    let colorsArr = [red,green,blue];
+    return colorsArr.join(",");
 }
